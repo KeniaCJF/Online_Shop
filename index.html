@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cafetería</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+
+<header class="header">
+  <h1>Cafetería Rosa</h1>
+</header>
+
+<nav class="categorias">
+  <button onclick="filtrar('bebidas')">Bebidas</button>
+  <button onclick="filtrar('comida')">Comida</button>
+  <button onclick="filtrar('postres')">Postres</button>
+</nav>
+
+<main id="productos" class="productos"></main>
+
+<aside class="carrito">
+  <h2>Carrito</h2>
+  <div id="carritoLista"></div>
+  <p id="total"></p>
+  <button onclick="pagar()">Pagar</button>
+  <button onclick="cancelar()">Cancelar</button>
+</aside>
+
+<script src="app.js"></script>
+
+</body>
+</html>
