@@ -92,7 +92,7 @@ async function pagar(){
     const data = await res.json();
 
     // 🔐 TU CLAVE PÚBLICA DE STRIPE
-    const stripe = Stripe("pk_live_51T6fAFHdpiRTkLl5sNs0EjjOAAhFBQSNxFmGLQvYIbwaS8LgzWSa6XSFy5taKGOuZjpt0qgbCu7Q7VoaDd2fidAp00JWiiGPaw");
+    const stripe = stripe("pk_live_51T6fAFHdpiRTkLl5sNs0EjjOAAhFBQSNxFmGLQvYIbwaS8LgzWSa6XSFy5taKGOuZjpt0qgbCu7Q7VoaDd2fidAp00JWiiGPaw");
 
     const result = await stripe.redirectToCheckout({
       sessionId: data.id
