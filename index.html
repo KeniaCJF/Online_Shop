@@ -11,28 +11,31 @@
 <body>
 
 <header class="header">
-  <h1>Cafetería Rosa</h1>
+  Cafetería Rosa
 </header>
 
 <nav class="categorias">
-  <button onclick="filtrar('')">Todo</button>
+  <button onclick="filtrar('bebidas','desayunos','postres')">Todo</button>
   <button onclick="filtrar('bebidas')">Bebidas</button>
-  <button onclick="filtrar('desayunos')">desayunos</button>
+  <button onclick="filtrar('desayunos')">Desayunos</button>
   <button onclick="filtrar('postres')">Postres</button>
 </nav>
 
-<main id="productos" class="productos"></main>
+<!-- 🔥 CONTENEDOR PRINCIPAL -->
+<div class="contenedor">
 
-<aside class="carrito">
-  <h2>Carrito</h2>
-  <div id="carritoLista"></div>
-  <p id="total"></p>
-  <button onclick="pagar()">Pagar</button>
-  <button onclick="cancelar()">Cancelar</button>
-</aside>
+  <main id="productos" class="productos"></main>
 
-<script src="https://js.stripe.com/v3/"></script>
+  <aside class="carrito">
+    <h2>Carrito</h2>
+    <div id="carritoLista"></div>
+    <p id="total"></p>
+    <button onclick="pagar()">Pagar</button>
+    <button onclick="cancelar()">Cancelar</button>
+  </aside>
+
+</div>
+
 <script src="app.js"></script>
-
 </body>
 </html>
