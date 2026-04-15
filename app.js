@@ -77,13 +77,36 @@ function cancelar(){
 }
 
 async function pagar(){
-  const res = await fetch(`${API}/crear-pago`,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body: JSON.stringify({items:carrito})
-  });
+  if(carrito.length === 0){
+    alert("El carrito está vacío");
+    return;
+  }
 
-  const data = await res.json();
+  try {
+    const res = await fetch(`${API}/crear-pago`,{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({items:carrito})
+    });
 
-  window.location = `https://checkout.stripe.com/pay/${data.id}`;
+    const data = await res.json();
+
+    // 🔐 TU CLAVE PÚBLICA DE STRIPE
+    const stripe = Stripe("pk_live_51T6fAFHdpiRTkLl5sNs0EjjOAAhFBQSNxFmGLQvYIbwaS8LgzWSa6XSFy5taKGOuZjpt0qgbCu7Q7VoaDd2fidAp00JWiiGPaw");
+
+    const result = await stripe.redirectToCheckout({
+      sessionId: data.id
+    });
+
+    if(result.error){
+      console.log(result.error.message);
+      alert("Error al redirigir al pago");
+    }
+
+  } catch (error) {
+    console.log(error);
+    alert("Error al procesar el pago");
+  }
 }
+
+
