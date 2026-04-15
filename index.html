@@ -1,42 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cafetería</title>
-<link rel="stylesheet" href="styles.css">
-<link rel="manifest" href="manifest.json">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafetería Gatito</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
 </head>
 
 <body>
 
-<header class="header">
-  Cafetería Rosa
-</header>
+    <header class="header">
+        Cafetería Gatito
+    </header>
 
-<nav class="categorias">
-<button onclick="filtrar(['bebidas', 'desayunos', 'postres'])">Todo</button>
-  <button onclick="filtrar('bebidas')">Bebidas</button>
-  <button onclick="filtrar('desayunos')">Desayunos</button>
-  <button onclick="filtrar('postres')">Postres</button>
-</nav>
+    <div class="banner">
+        <div class="banner-info">
+            <h1>Bienvenidos a nuestro rincón dulce</h1>
+            <p>Descubre el sabor en cada detalle</p>
+        </div>
+    </div>
 
-<!-- 🔥 CONTENEDOR PRINCIPAL -->
-<div class="contenedor">
+    <nav class="categorias">
+        <button onclick="filtrar('todos')">Todo</button>
+        <button onclick="filtrar('bebidas')">Bebidas</button>
+        <button onclick="filtrar('desayunos')">Desayunos</button>
+        <button onclick="filtrar('postres')">Postres</button>
+    </nav>
 
-  <main id="productos" class="productos"></main>
+    <div class="contenedor">
 
-  <aside class="carrito">
-    <h2>Carrito</h2>
-    <div id="carritoLista"></div>
-    <p id="total"></p>
-    <button onclick="pagar()">Pagar</button>
-    <button onclick="cancelar()">Cancelar</button>
-  </aside>
+        <main id="productos" class="productos"></main>
 
-</div>
+        <aside class="carrito">
+            <h2>Carrito</h2>
+            <div id="carritoLista"></div>
+            <p id="total">Total: $0</p>
+            <button onclick="pagar()">Pagar</button>
+            <button onclick="cancelar()">Cancelar</button>
+        </aside>
 
-<script src="https://js.stripe.com/v3/"></script>
-<script src="app.js"></script>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p><strong>Cafetería Rosa</strong></p>
+            <p>Gómez Palacio, Durango</p>
+            <p>&copy; 2026 Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="app.js"></script>
 </body>
 </html>
